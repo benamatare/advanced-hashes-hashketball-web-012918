@@ -167,7 +167,7 @@ game_hash.each do |team_position, team_data|
     if player_name == name
       return player_data[:shoe]
       elsif player_name =! name
-      return nil 
+      return nil
     end
   end
 end
