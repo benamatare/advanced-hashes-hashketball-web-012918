@@ -162,15 +162,17 @@ def team_color team
 end
 
 def shoe_size name
+  final = 0
 game_hash.each do |team_position, team_data|
   team_data[:players].each do |player_name, player_data|
     if player_name == name
-      return player_data[:shoe]
+      final = player_data[:shoe]
       elsif player_name =! name
       return nil
     end
   end
 end
+final
 end
 
 def big_shoe_rebounds
