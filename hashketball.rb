@@ -160,6 +160,19 @@ def team_color team
    end
  end
 end
+
+def shoe_size name
+game_hash.each do |team_position, team_data|
+  team_data[:players].each do |player_name, player_data|
+    if player_name == name
+      return player_data[:shoe]
+      elsif player_name =! name
+      return nil 
+    end
+  end
+end
+end
+
 def big_shoe_rebounds
 rebound_counter = 0
 shoe_size_counter = 0
