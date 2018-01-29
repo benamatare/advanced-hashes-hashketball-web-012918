@@ -161,18 +161,83 @@ def team_color team
  end
 end
 
+
+
+def player_stats name
+  player_hash = {}
+  game_hash.each do |team_position, team_data|
+   return team_data[:players].each do |player_name, player_data|
+     if player_name == name
+       return player_data
+       elsif player_name =! name
+       return nil
+     end
+ end
+end
+end
+
+def player_numbers team
+  number_array = []
+  game_hash.each do |team_position, team_data|
+    if team_data[:team_name] == team
+        team_data[:players].each do |player_name, player_scores|
+     number_array << player_scores[:points]
+
+      end
+    end
+  end
+  number_array
+end
+
+def team_color team
+ game_hash.each do |team_position, team_data|
+   if team == team_data[:team_name]
+     return team_data[:colors]
+   end
+ end
+end
+
+def team_names
+  team_array =[]
+  team_array << game_hash[:home][:team_name]
+  team_array << game_hash[:away][:team_name]
+  return team_array
+end
+
 def shoe_size name
-  final = 0
 game_hash.each do |team_position, team_data|
   team_data[:players].each do |player_name, player_data|
     if player_name == name
-      final = player_data[:shoe]
+      return player_data[:shoe]
       elsif player_name =! name
       return nil
     end
   end
 end
-final
+end
+
+def num_points_scored name
+  game_hash.each do |team_position, team_data|
+    team_data[:players].each do |player_name, player_data|
+    if player_name == name
+      return player_data[:points]
+    elsif player_name =! name
+    return nil
+    end
+end
+end
+end
+
+def shoe_size name
+game_hash.each do |team_position, team_data|
+  team_data[:players].each do |player_name, player_data|
+    if player_name == name
+      return player_data[:shoe]
+      elsif player_name =! name
+      return nil
+    end
+  end
+end
 end
 
 def big_shoe_rebounds
